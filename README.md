@@ -1,3 +1,3 @@
 # Advent2k20
 
-Solutions for the advent of code 2020 https://adventofcode.com/2020
+Solutions for the advent of code 2k20 https://adventofcode.com/2020
