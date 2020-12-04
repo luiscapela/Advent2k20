@@ -1,6 +1,6 @@
 var fs = require("fs");
 
-var contents = fs.readFileSync("input.txt", "utf8");
+var contents = fs.readFileSync("day1input.txt", "utf8");
 const lines = contents.split("\r\n");
 const numbers = lines.map((number) => {
   return Number(number);
