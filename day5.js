@@ -5,7 +5,7 @@ const lines = contents.split(/\r?\n/);
 let biggestSeatId = 0;
 
 //console.log(lines); //test1
-lines.forEach((boardingPass) => {
+const seatIds = lines.map((boardingPass) => {
   const regex0 = /F|L/gi;
   const boardingPassInBinary0 = boardingPass.replace(regex0, "0");
   const regex1 = /B|R/gi;
@@ -15,9 +15,25 @@ lines.forEach((boardingPass) => {
   const rowNumber = parseInt(row, 2);
   const columnNumber = parseInt(column, 2);
   const seatID = rowNumber * 8 + columnNumber;
-  //console.log(seatID);
+  return seatID;
+});
+
+seatIds.forEach((seatID) => {
   if (seatID > biggestSeatId) {
     biggestSeatId = seatID;
   }
 });
 console.log("The Big Seat Id is:", biggestSeatId);
+let minimusSeatId = biggestSeatId;
+seatIds.forEach((seatID) => {
+  if (seatID < minimusSeatId) {
+    minimusSeatId = seatID;
+  }
+});
+console.log("The small Seat Id is:", minimusSeatId);
+
+for (let i = minimusSeatId; i < biggestSeatId; i++) {
+  if (!seatIds.includes(i)) {
+    console.log("Your seat is: ", i);
+  }
+}
